@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniil | Digital Developer</title>
+    <meta name="description" content="Digital Developer & Tech Enthusiast from Espoo, Finland. Passionate about programming, learning new technologies, and fluent in Finnish, English, and Russian.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <style>
+        :root {
+            /* Digital theme colors */
+            --neon-green: hsl(150, 100%, 50%);
+            --electric-blue: hsl(216, 100%, 50%);
+            --cyber-cyan: hsl(180, 100%, 50%);
+            --neon-pink: hsl(320, 100%, 50%);
+            --dark-navy: hsl(240, 36%, 14%);
+            --deep-black: hsl(240, 10%, 4%);
+            --light-gray: hsl(0, 0%, 70%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--deep-black);
+            color: white;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .font-orbitron {
+            font-family: 'Orbitron', monospace;
+        }
+
+        .font-mono {
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        /* Utility Classes */
+        .text-neon-green { color: var(--neon-green); }
+        .text-electric-blue { color: var(--electric-blue); }
+        .text-cyber-cyan { color: var(--cyber-cyan); }
+        .text-neon-pink { color: var(--neon-pink); }
+        .text-light-gray { color: var(--light-gray); }
+        
+        .bg-neon-green { background-color: var(--neon-green); }
+        .bg-electric-blue { background-color: var(--electric-blue); }
+        .bg-cyber-cyan { background-color: var(--cyber-cyan); }
+        .bg-neon-pink { background-color: var(--neon-pink); }
+        .bg-dark-navy { background-color: var(--dark-navy); }
+        .bg-deep-black { background-color: var(--deep-black); }
+
+        .border-neon-green { border-color: var(--neon-green); }
+        .border-electric-blue { border-color: var(--electric-blue); }
+        .border-cyber-cyan { border-color: var(--cyber-cyan); }
+        .border-neon-pink { border-color: var(--neon-pink); }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .space-x-4 > * + * {
+            margin-left: 1rem;
+        }
+
+        .space-x-6 > * + * {
+            margin-left: 1.5rem;
+        }
+
+        .space-y-4 > * + * {
+            margin-top: 1rem;
+        }
+
+        .space-y-6 > * + * {
+            margin-top: 1.5rem;
+        }
+
+        .grid {
+            display: grid;
+        }
+
+        .grid-cols-1 {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        .grid-cols-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .grid-cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .gap-4 {
+            gap: 1rem;
+        }
+
+        .gap-6 {
+            gap: 1.5rem;
+        }
+
+        .gap-8 {
+            gap: 2rem;
+        }
+
+        /* Animations */
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 5px var(--neon-green), 0 0 10px var(--neon-green), 0 0 15px var(--neon-green);
+            }
+            100% {
+                box-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green), 0 0 30px var(--neon-green);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .animate-glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        .grid-pattern {
+            background-image: 
+                linear-gradient(rgba(0, 255, 136, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 136, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+            background: rgba(7, 7, 16, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+            padding: 1rem 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .logo {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--neon-green);
+        }
+
+        .nav-links {
+            display: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links button {
+            background: none;
+            border: none;
+            color: white;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .nav-links button:hover {
+            color: var(--neon-green);
+        }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .lang-switcher:hover {
+            border-color: rgba(0, 255, 136, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 5rem;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            max-width: 64rem;
+            margin: 0 auto;
+            padding: 0 1rem;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--neon-green), var(--electric-blue), var(--cyber-cyan));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.125rem;
+            color: var(--light-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .hero-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(7, 7, 16, 0.8));
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            transition: all 0.3s;
+        }
+
+        .hero-card:hover {
+            border-color: rgba(0, 255, 136, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .hero-card:nth-child(1) {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-card:nth-child(2) {
+            animation: float 3s ease-in-out infinite 0.2s;
+        }
+
+        .hero-card:nth-child(3) {
+            animation: float 3s ease-in-out infinite 0.4s;
+        }
+
+        .cta-button {
+            background: linear-gradient(to right, var(--neon-green), var(--electric-blue));
+            color: var(--deep-black);
+            font-family: 'Roboto Mono', monospace;
+            font-weight: bold;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 255, 136, 0.5);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--electric-blue), var(--cyber-cyan));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-divider {
+            width: 5rem;
+            height: 0.25rem;
+            background: linear-gradient(to right, var(--neon-green), var(--electric-blue));
+            margin: 1rem auto 4rem;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(to bottom, var(--deep-black), rgba(30, 41, 59, 0.2));
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.6), rgba(7, 7, 16, 0.6));
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-card h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .language-tags {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .language-tag {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.875rem;
+        }
+
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), transparent);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+        }
+
+        /* Skills Section */
+        .skills {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skills-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.05;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(7, 7, 16, 0.8));
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            transition: all 0.5s;
+        }
+
+        .skill-category:hover {
+            transform: scale(1.05);
+            border-color: rgba(0, 255, 136, 0.6);
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-header h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-left: 1rem;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .skill-bar {
+            width: 5rem;
+            height: 0.5rem;
+            background: var(--dark-navy);
+            border-radius: 0.25rem;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(to right, var(--neon-green), var(--electric-blue));
+            border-radius: 0.25rem;
+            transition: width 1s ease-in-out;
+        }
+
+        .quote-section {
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .quote-card {
+            max-width: 64rem;
+            margin: 0 auto;
+            background: linear-gradient(to right, rgba(30, 41, 59, 0.6), rgba(7, 7, 16, 0.6), rgba(30, 41, 59, 0.6));
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(to top, var(--deep-black), rgba(30, 41, 59, 0.3), var(--deep-black));
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(7, 7, 16, 0.8));
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(7, 7, 16, 0.8));
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            border-color: rgba(59, 130, 246, 0.6);
+            transform: scale(1.05);
+        }
+
+        .contact-form {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(7, 7, 16, 0.8));
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            background: rgba(7, 7, 16, 0.5);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            color: white;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: rgba(0, 255, 136, 0.6);
+        }
+
+        .form-input::placeholder {
+            color: var(--light-gray);
+        }
+
+        .form-textarea {
+            resize: none;
+            min-height: 6rem;
+        }
+
+        .submit-button {
+            width: 100%;
+            background: linear-gradient(to right, var(--neon-green), var(--electric-blue));
+            color: var(--deep-black);
+            font-family: 'Roboto Mono', monospace;
+            font-weight: bold;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 255, 136, 0.5);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--deep-black);
+            border-top: 1px solid rgba(0, 255, 136, 0.2);
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 4.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--deep-black);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--neon-green);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--electric-blue);
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo" data-translate="DANIIL">DANIIL</div>
+            
+            <div class="flex items-center space-x-6">
+                <button class="lang-switcher" onclick="toggleLanguage()">
+                    <i data-lucide="globe"></i>
+                    <span id="current-lang">EN</span>
+                    <i data-lucide="chevron-down"></i>
+                </button>
+                
+                <div class="nav-links">
+                    <button onclick="scrollToSection('about')" data-translate="About">About</button>
+                    <button onclick="scrollToSection('skills')" data-translate="Skills">Skills</button>
+                    <button onclick="scrollToSection('contact')" data-translate="Contact">Contact</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg grid-pattern"></div>
+        
+        <div class="hero-content">
+            <div>
+                <h1 class="hero-title animate-glow" data-translate="DANIIL">DANIIL</h1>
+                <div class="hero-subtitle">
+                    <span class="text-neon-green">></span>
+                    <span class="animate-pulse" data-translate="Digital Developer & Tech Enthusiast">Digital Developer & Tech Enthusiast</span>
+                </div>
+            </div>
+
+            <div class="hero-cards">
+                <div class="hero-card">
+                    <div style="font-size: 2rem; margin-bottom: 0.75rem;">📍</div>
+                    <h3 class="font-orbitron" style="font-size: 1.125rem; font-weight: bold; margin-bottom: 0.5rem;" data-translate="Location">Location</h3>
+                    <p class="text-light-gray">Espoo, Finland</p>
+                </div>
+
+                <div class="hero-card">
+                    <div style="font-size: 2rem; margin-bottom: 0.75rem;">💻</div>
+                    <h3 class="font-orbitron" style="font-size: 1.125rem; font-weight: bold; margin-bottom: 0.5rem;" data-translate="Passion">Passion</h3>
+                    <p class="text-light-gray" data-translate="Programming & Learning">Programming & Learning</p>
+                </div>
+
+                <div class="hero-card">
+                    <div style="font-size: 2rem; margin-bottom: 0.75rem;">🌐</div>
+                    <h3 class="font-orbitron" style="font-size: 1.125rem; font-weight: bold; margin-bottom: 0.5rem;" data-translate="Languages">Languages</h3>
+                    <p class="text-light-gray" data-translate="Finnish • English • Russian">Finnish • English • Russian</p>
+                </div>
+            </div>
+
+            <button class="cta-button" onclick="scrollToSection('about')">
+                <span data-translate="Explore My World">Explore My World</span>
+                <i data-lucide="arrow-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 class="section-title" data-translate="ABOUT">ABOUT</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="about-grid">
+                <div class="space-y-6">
+                    <div class="about-card">
+                        <h3 class="text-neon-green" data-translate="Digital Native">Digital Native</h3>
+                        <p class="text-light-gray" style="line-height: 1.6; margin-bottom: 1rem;" data-translate="aboutDescription1">
+                            Living in the beautiful city of Espoo, Finland, I'm passionate about exploring the endless possibilities of technology. Every day brings new opportunities to learn, create, and push the boundaries of what's possible in the digital realm.
+                        </p>
+                        <div class="flex items-center space-x-2 text-cyber-cyan">
+                            <span class="text-neon-pink">❤️</span>
+                            <span class="font-mono" style="font-size: 0.875rem;" data-translate="Love for continuous learning">Love for continuous learning</span>
+                        </div>
+                    </div>
+
+                    <div class="about-card">
+                        <h3 class="text-electric-blue" data-translate="Multilingual Mind">Multilingual Mind</h3>
+                        <p class="text-light-gray" style="line-height: 1.6; margin-bottom: 1rem;" data-translate="aboutDescription2">
+                            Fluent in Finnish, English, and Russian, I bridge cultures through code. This multilingual perspective enriches my approach to problem-solving and opens doors to global collaboration in the tech community.
+                        </p>
+                        <div class="language-tags">
+                            <span class="language-tag" style="background: rgba(0, 255, 136, 0.2); color: var(--neon-green);">Finnish</span>
+                            <span class="language-tag" style="background: rgba(59, 130, 246, 0.2); color: var(--electric-blue);">English</span>
+                            <span class="language-tag" style="background: rgba(6, 182, 212, 0.2); color: var(--cyber-cyan);">Russian</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div style="position: relative;">
+                        <img 
+                            src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                            alt="Modern coding workspace with multiple monitors" 
+                            style="border-radius: 1rem; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); width: 100%; height: auto; border: 1px solid rgba(0, 255, 136, 0.3);" 
+                        />
+                        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(7, 7, 16, 0.6), transparent); border-radius: 1rem;"></div>
+                    </div>
+
+                    <div class="feature-cards">
+                        <div class="feature-card">
+                            <i data-lucide="rocket" style="width: 2rem; height: 2rem; color: var(--neon-green); margin-bottom: 0.75rem;"></i>
+                            <h4 class="font-orbitron" style="font-weight: bold; font-size: 1.125rem; margin-bottom: 0.5rem;" data-translate="Innovation">Innovation</h4>
+                            <p class="text-light-gray" style="font-size: 0.875rem;" data-translate="Always exploring new tech">Always exploring new tech</p>
+                        </div>
+                        <div class="feature-card">
+                            <i data-lucide="brain" style="width: 2rem; height: 2rem; color: var(--electric-blue); margin-bottom: 0.75rem;"></i>
+                            <h4 class="font-orbitron" style="font-weight: bold; font-size: 1.125rem; margin-bottom: 0.5rem;" data-translate="Problem Solving">Problem Solving</h4>
+                            <p class="text-light-gray" style="font-size: 0.875rem;" data-translate="Logical thinking approach">Logical thinking approach</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills">
+        <div class="skills-bg grid-pattern"></div>
+        
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 class="section-title" data-translate="SKILLS">SKILLS</h2>
+                <p class="text-light-gray" style="font-size: 1.125rem; max-width: 32rem; margin: 0 auto;" data-translate="Technologies I work with and continuously explore">Technologies I work with and continuously explore</p>
+                <div class="section-divider" style="margin-top: 1rem;"></div>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-category" style="border-color: rgba(0, 255, 136, 0.2);" onmouseenter="this.style.borderColor='rgba(0, 255, 136, 0.6)'" onmouseleave="this.style.borderColor='rgba(0, 255, 136, 0.2)'">
+                    <div class="skill-header">
+                        <i data-lucide="laptop" style="width: 2rem; height: 2rem; color: var(--neon-green);"></i>
+                        <h3 data-translate="Frontend">Frontend</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <span class="text-light-gray">React.js</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="text-light-gray">JavaScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="text-light-gray">HTML/CSS</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category" style="border-color: rgba(59, 130, 246, 0.2);" onmouseenter="this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseleave="this.style.borderColor='rgba(59, 130, 246, 0.2)'">
+                    <div class="skill-header">
+                        <i data-lucide="server" style="width: 2rem; height: 2rem; color: var(--electric-blue);"></i>
+                        <h3 data-translate="Backend">Backend</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <span class="text-light-gray">Node.js</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="text-light-gray">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="text-light-gray">Databases</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category" style="border-color: rgba(6, 182, 212, 0.2);" onmouseenter="this.style.borderColor='rgba(6, 182, 212, 0.6)'" onmouseleave="this.style.borderColor='rgba(6, 182, 212, 0.2)'">
+                    <div class="skill-header">
+                        <i data-lucide="wrench" style="width: 2rem; height: 2rem; color: var(--cyber-cyan);"></i>
+                        <h3 data-translate="Tools">Tools</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <span class="text-light-gray">Git</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="text-light-gray">Docker</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="text-light-gray">Linux</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category" style="border-color: rgba(236, 72, 153, 0.2);" onmouseenter="this.style.borderColor='rgba(236, 72, 153, 0.6)'" onmouseleave="this.style.borderColor='rgba(236, 72, 153, 0.2)'">
+                    <div class="skill-header">
+                        <i data-lucide="graduation-cap" style="width: 2rem; height: 2rem; color: var(--neon-pink);"></i>
+                        <h3 data-translate="Learning">Learning</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="font-size: 0.875rem;">🧠</span>
+                            <span class="text-light-gray">Machine Learning</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="font-size: 0.875rem;">📱</span>
+                            <span class="text-light-gray">Mobile Development</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="font-size: 0.875rem;">☁️</span>
+                            <span class="text-light-gray">Cloud Technologies</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category" style="border-color: rgba(0, 255, 136, 0.2);" onmouseenter="this.style.borderColor='rgba(0, 255, 136, 0.6)'" onmouseleave="this.style.borderColor='rgba(0, 255, 136, 0.2)'">
+                    <div class="skill-header">
+                        <i data-lucide="trending-up" style="width: 2rem; height: 2rem; color: var(--neon-green);"></i>
+                        <h3 data-translate="Data Science">Data Science</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <span class="text-light-gray">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="text-light-gray">Pandas</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="text-light-gray">Visualization</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category" style="border-color: rgba(59, 130, 246, 0.2);" onmouseenter="this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseleave="this.style.borderColor='rgba(59, 130, 246, 0.2)'">
+                    <div class="skill-header">
+                        <i data-lucide="palette" style="width: 2rem; height: 2rem; color: var(--electric-blue);"></i>
+                        <h3 data-translate="Creative">Creative</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="font-size: 0.875rem;">🎲</span>
+                            <span class="text-light-gray">3D Graphics</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="font-size: 0.875rem;">🎮</span>
+                            <span class="text-light-gray">Game Development</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="font-size: 0.875rem;">🥽</span>
+                            <span class="text-light-gray">AR/VR</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-section">
+                <div class="quote-card">
+                    <div style="font-size: 1.5rem; color: var(--neon-green); margin-bottom: 1rem;">"</div>
+                    <p class="text-light-gray font-mono" style="font-size: 1.125rem; font-style: italic; margin-bottom: 1rem;" data-translate="skillsQuote">
+                        The best way to predict the future is to create it. Every line of code is a step towards building tomorrow's digital world.
+                    </p>
+                    <div class="text-neon-green font-orbitron" style="font-weight: bold;">- Daniil</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 class="section-title" style="background: linear-gradient(to right, var(--cyber-cyan), var(--neon-pink)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-translate="CONNECT">CONNECT</h2>
+                <p class="text-light-gray" style="font-size: 1.125rem;" data-translate="Let's build the future together">Let's build the future together</p>
+                <div class="section-divider" style="background: linear-gradient(to right, var(--cyber-cyan), var(--neon-pink)); margin-top: 1rem;"></div>
+            </div>
+
+            <div class="contact-grid">
+                <div class="space-y-8">
+                    <div class="contact-info">
+                        <h3 class="font-orbitron text-neon-green" style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;" data-translate="Get In Touch">Get In Touch</h3>
+                        <p class="text-light-gray" style="margin-bottom: 1.5rem;" data-translate="contactDescription">
+                            Ready to collaborate on exciting projects or discuss new opportunities in the tech world.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="contact-item">
+                                <i data-lucide="mail" style="width: 1.25rem; height: 1.25rem; color: var(--electric-blue);"></i>
+                                <span class="text-light-gray font-mono">daniil@example.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i data-lucide="map-pin" style="width: 1.25rem; height: 1.25rem; color: var(--cyber-cyan);"></i>
+                                <span class="text-light-gray">Espoo, Finland</span>
+                            </div>
+                            <div class="contact-item">
+                                <i data-lucide="clock" style="width: 1.25rem; height: 1.25rem; color: var(--neon-pink);"></i>
+                                <span class="text-light-gray" data-translate="EET (UTC+2)">EET (UTC+2)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i data-lucide="github" style="width: 2rem; height: 2rem; color: var(--electric-blue); margin-bottom: 0.75rem; transition: transform 0.3s;" onmouseenter="this.style.transform='scale(1.1)'" onmouseleave="this.style.transform='scale(1)'"></i>
+                            <span style="display: block; color: var(--light-gray); font-family: 'Roboto Mono', monospace; font-size: 0.875rem;">GitHub</span>
+                        </a>
+                        <a href="#" class="social-link" style="border-color: rgba(6, 182, 212, 0.2);" onmouseenter="this.style.borderColor='rgba(6, 182, 212, 0.6)'" onmouseleave="this.style.borderColor='rgba(6, 182, 212, 0.2)'">
+                            <i data-lucide="linkedin" style="width: 2rem; height: 2rem; color: var(--cyber-cyan); margin-bottom: 0.75rem; transition: transform 0.3s;" onmouseenter="this.style.transform='scale(1.1)'" onmouseleave="this.style.transform='scale(1)'"></i>
+                            <span style="display: block; color: var(--light-gray); font-family: 'Roboto Mono', monospace; font-size: 0.875rem;">LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3 class="font-orbitron text-neon-green" style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1.5rem;" data-translate="Send Message">Send Message</h3>
+                    <form onsubmit="handleSubmit(event)" class="space-y-6">
+                        <div class="form-group">
+                            <input
+                                type="text"
+                                name="name"
+                                class="form-input"
+                                data-translate-placeholder="Your Name"
+                                placeholder="Your Name"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <input
+                                type="email"
+                                name="email"
+                                class="form-input"
+                                data-translate-placeholder="Your Email"
+                                placeholder="Your Email"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <textarea
+                                name="message"
+                                rows="4"
+                                class="form-input form-textarea"
+                                data-translate-placeholder="Your Message"
+                                placeholder="Your Message"
+                                required
+                            ></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">
+                            <span data-translate="Send">Send</span>
+                            <i data-lucide="send"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div style="margin-bottom: 1rem;">
+                    <div class="font-orbitron text-neon-green" style="font-size: 1.125rem; font-weight: bold; margin-bottom: 0.5rem;" data-translate="DANIIL">
+                        DANIIL
+                    </div>
+                    <p class="text-light-gray" style="font-size: 0.875rem;" data-translate="Digital Developer & Tech Enthusiast">Digital Developer & Tech Enthusiast</p>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                    <div class="text-light-gray" style="font-size: 0.875rem;">
+                        <span data-translate="Made with">Made with</span>
+                        <span class="text-neon-pink" style="margin: 0 0.25rem;">❤️</span>
+                        <span data-translate="in Finland">in Finland</span>
+                    </div>
+                    <div class="text-light-gray font-mono" style="font-size: 0.875rem;">
+                        © 2024 Daniil
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Translations
+        const translations = {
+            en: {
+                'DANIIL': 'DANIIL',
+                'Digital Developer & Tech Enthusiast': 'Digital Developer & Tech Enthusiast',
+                'About': 'About',
+                'Skills': 'Skills',
+                'Contact': 'Contact',
+                'Location': 'Location',
+                'Passion': 'Passion',
+                'Languages': 'Languages',
+                'Programming & Learning': 'Programming & Learning',
+                'Finnish • English • Russian': 'Finnish • English • Russian',
+                'Explore My World': 'Explore My World',
+                'ABOUT': 'ABOUT',
+                'Digital Native': 'Digital Native',
+                'aboutDescription1': 'Living in the beautiful city of Espoo, Finland, I\'m passionate about exploring the endless possibilities of technology. Every day brings new opportunities to learn, create, and push the boundaries of what\'s possible in the digital realm.',
+                'Love for continuous learning': 'Love for continuous learning',
+                'Multilingual Mind': 'Multilingual Mind',
+                'aboutDescription2': 'Fluent in Finnish, English, and Russian, I bridge cultures through code. This multilingual perspective enriches my approach to problem-solving and opens doors to global collaboration in the tech community.',
+                'Innovation': 'Innovation',
+                'Always exploring new tech': 'Always exploring new tech',
+                'Problem Solving': 'Problem Solving',
+                'Logical thinking approach': 'Logical thinking approach',
+                'SKILLS': 'SKILLS',
+                'Technologies I work with and continuously explore': 'Technologies I work with and continuously explore',
+                'Frontend': 'Frontend',
+                'Backend': 'Backend',
+                'Tools': 'Tools',
+                'Learning': 'Learning',
+                'Data Science': 'Data Science',
+                'Creative': 'Creative',
+                'skillsQuote': 'The best way to predict the future is to create it. Every line of code is a step towards building tomorrow\'s digital world.',
+                'CONNECT': 'CONNECT',
+                'Let\'s build the future together': 'Let\'s build the future together',
+                'Get In Touch': 'Get In Touch',
+                'contactDescription': 'Ready to collaborate on exciting projects or discuss new opportunities in the tech world.',
+                'EET (UTC+2)': 'EET (UTC+2)',
+                'Send Message': 'Send Message',
+                'Your Name': 'Your Name',
+                'Your Email': 'Your Email',
+                'Your Message': 'Your Message',
+                'Send': 'Send',
+                'Made with': 'Made with',
+                'in Finland': 'in Finland'
+            },
+            ru: {
+                'DANIIL': 'ДАНИИЛ',
+                'Digital Developer & Tech Enthusiast': 'Цифровой Разработчик и Технический Энтузиаст',
+                'About': 'Обо мне',
+                'Skills': 'Навыки',
+                'Contact': 'Контакты',
+                'Location': 'Местоположение',
+                'Passion': 'Страсть',
+                'Languages': 'Языки',
+                'Programming & Learning': 'Программирование и Изучение',
+                'Finnish • English • Russian': 'Финский • Английский • Русский',
+                'Explore My World': 'Исследовать Мой Мир',
+                'ABOUT': 'ОБО МНЕ',
+                'Digital Native': 'Цифровой Житель',
+                'aboutDescription1': 'Живя в прекрасном городе Эспоо, Финляндия, я увлечен изучением бесконечных возможностей технологий. Каждый день приносит новые возможности для обучения, творчества и расширения границ возможного в цифровой сфере.',
+                'Love for continuous learning': 'Любовь к непрерывному обучению',
+                'Multilingual Mind': 'Многоязычный Разум',
+                'aboutDescription2': 'Свободно владея финским, английским и русским языками, я соединяю культуры через код. Эта многоязычная перспектива обогащает мой подход к решению проблем и открывает двери для глобального сотрудничества в технологическом сообществе.',
+                'Innovation': 'Инновации',
+                'Always exploring new tech': 'Всегда изучаю новые технологии',
+                'Problem Solving': 'Решение Задач',
+                'Logical thinking approach': 'Логический подход к мышлению',
+                'SKILLS': 'НАВЫКИ',
+                'Technologies I work with and continuously explore': 'Технологии, с которыми я работаю и постоянно изучаю',
+                'Frontend': 'Фронтенд',
+                'Backend': 'Бэкенд',
+                'Tools': 'Инструменты',
+                'Learning': 'Изучаю',
+                'Data Science': 'Наука о Данных',
+                'Creative': 'Творчество',
+                'skillsQuote': 'Лучший способ предсказать будущее - это создать его. Каждая строка кода - это шаг к созданию цифрового мира завтрашнего дня.',
+                'CONNECT': 'СВЯЗАТЬСЯ',
+                'Let\'s build the future together': 'Давайте строить будущее вместе',
+                'Get In Touch': 'Связаться',
+                'contactDescription': 'Готов к сотрудничеству над интересными проектами или обсуждению новых возможностей в мире технологий.',
+                'EET (UTC+2)': 'EET (UTC+2)',
+                'Send Message': 'Отправить Сообщение',
+                'Your Name': 'Ваше Имя',
+                'Your Email': 'Ваш Email',
+                'Your Message': 'Ваше Сообщение',
+                'Send': 'Отправить',
+                'Made with': 'Создано с',
+                'in Finland': 'в Финляндии'
+            }
+        };
+
+        let currentLanguage = 'en';
+
+        // Language switching functionality
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'en' ? 'ru' : 'en';
+            updateLanguage();
+        }
+
+        function updateLanguage() {
+            const langDisplay = document.getElementById('current-lang');
+            langDisplay.textContent = currentLanguage.toUpperCase();
+
+            // Update all translatable elements
+            const translatableElements = document.querySelectorAll('[data-translate]');
+            translatableElements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[currentLanguage] && translations[currentLanguage][key]) {
+                    element.textContent = translations[currentLanguage][key];
+                }
+            });
+
+            // Update placeholders
+            const placeholderElements = document.querySelectorAll('[data-translate-placeholder]');
+            placeholderElements.forEach(element => {
+                const key = element.getAttribute('data-translate-placeholder');
+                if (translations[currentLanguage] && translations[currentLanguage][key]) {
+                    element.placeholder = translations[currentLanguage][key];
+                }
+            });
+        }
+
+        // Smooth scrolling
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            console.log('Form submitted:', data);
+            alert(currentLanguage === 'en' ? 'Message sent successfully!' : 'Сообщение успешно отправлено!');
+            event.target.reset();
+        }
+
+        // Initialize icons and other setup on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Lucide icons
+            lucide.createIcons();
+            
+            // Initialize language
+            updateLanguage();
+
+            // Animate skill bars on scroll
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const skillBars = entry.target.querySelectorAll('.skill-progress');
+                        skillBars.forEach(bar => {
+                            const width = bar.style.width;
+                            bar.style.width = '0%';
+                            setTimeout(() => {
+                                bar.style.width = width;
+                            }, 100);
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            const skillsSection = document.getElementById('skills');
+            if (skillsSection) {
+                observer.observe(skillsSection);
+            }
+        });
+    </script>
+</body>
+</html>
